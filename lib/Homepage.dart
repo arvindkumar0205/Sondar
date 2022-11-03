@@ -107,7 +107,7 @@ class _HomePageState extends State<HomePage> {
                   buildListView(
                       h,
                       w,
-                      w * 0.5,
+                      w * 0.72,
                       7,
                       'https://images.sonder.com/image/upload/c_fill,f_auto,q_auto:eco,w_600/v1616791504/catalina/homepage/city_grid/Chicago.png',
                       "Title",
@@ -140,7 +140,7 @@ class _HomePageState extends State<HomePage> {
                   buildListView(
                       h,
                       w,
-                      w * 0.3,
+                      w * 0.41,
                       7,
                       'https://images.sonder.com/image/upload/c_fill,f_auto,q_auto:eco,w_600/v1616791504/catalina/homepage/city_grid/Chicago.png',
                       "Title",
@@ -160,22 +160,79 @@ class _HomePageState extends State<HomePage> {
                   SizedBox(
                     height: h * 0.02,
                   ),
-                  buildListViewPrice(
+                  Stack(children: [
+                    buildListViewPrice(
                       h,
                       w,
-                      w * 0.5,
+                      w,
                       5,
                       "https://res.cloudinary.com/sonder/image/private/s--1IWrEWFN--/c_pad,h_853,q_auto,w_1280/v1/s3assets/unit_images/images/000/545/152/original/f1lMi1lW.jpg",
                       "Title",
                       "dsc",
-                      "stack"),
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        height: h * 0.04,
+                        width: w * 0.4,
+                        color: Colors.white,
+                        child: const Center(child: Text("From MX\$1625")),
+                      ),
+                    )
+                  ]),
+                  SizedBox(
+                    height: h * 0.02,
+                  ),
+                  Stack(children: [
+                    buildListViewPrice(
+                      h,
+                      w,
+                      w,
+                      5,
+                      "https://res.cloudinary.com/sonder/image/private/s--1IWrEWFN--/c_pad,h_853,q_auto,w_1280/v1/s3assets/unit_images/images/000/545/152/original/f1lMi1lW.jpg",
+                      "Title",
+                      "dsc",
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        height: h * 0.04,
+                        width: w * 0.4,
+                        color: Colors.white,
+                        child: const Center(child: Text("From \$274")),
+                      ),
+                    )
+                  ]),
+                  SizedBox(
+                    height: h * 0.02,
+                  ),
+                  Stack(children: [
+                    buildListViewPrice(
+                      h,
+                      w,
+                      w,
+                      5,
+                      "https://res.cloudinary.com/sonder/image/private/s--1IWrEWFN--/c_pad,h_853,q_auto,w_1280/v1/s3assets/unit_images/images/000/545/152/original/f1lMi1lW.jpg",
+                      "Title",
+                      "dsc",
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        height: h * 0.04,
+                        width: w * 0.4,
+                        color: Colors.white,
+                        child: const Center(child: Text("From \$101")),
+                      ),
+                    )
+                  ]),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
                     child: Container(
                       height: h * 0.2,
                       width: w,
                       decoration: const BoxDecoration(
-                        color: Color.fromARGB(213, 235, 174, 9),
+                        color: Color.fromARGB(212, 192, 168, 103),
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),
                       child: Column(
@@ -191,6 +248,73 @@ class _HomePageState extends State<HomePage> {
                       ),
                     ),
                   ),
+                  SizedBox(
+                    height: h * 0.02,
+                  ),
+                  Stack(children: [
+                    buildListViewPrice(
+                      h,
+                      w,
+                      w,
+                      5,
+                      "https://res.cloudinary.com/sonder/image/private/s--1IWrEWFN--/c_pad,h_853,q_auto,w_1280/v1/s3assets/unit_images/images/000/545/152/original/f1lMi1lW.jpg",
+                      "Title",
+                      "dsc",
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        height: h * 0.04,
+                        width: w * 0.4,
+                        color: Colors.white,
+                        child: const Center(child: Text("From €2871")),
+                      ),
+                    )
+                  ]),
+                  SizedBox(
+                    height: h * 0.02,
+                  ),
+                  Stack(children: [
+                    buildListViewPrice(
+                      h,
+                      w,
+                      w,
+                      5,
+                      "https://res.cloudinary.com/sonder/image/private/s--1IWrEWFN--/c_pad,h_853,q_auto,w_1280/v1/s3assets/unit_images/images/000/545/152/original/f1lMi1lW.jpg",
+                      "Title",
+                      "dsc",
+                    ),
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        height: h * 0.04,
+                        width: w * 0.4,
+                        color: Colors.white,
+                        child: const Center(child: Text("From €137")),
+                      ),
+                    )
+                  ]),
+                  Container(
+                      height: h * 0.08,
+                      width: w,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: const Color.fromARGB(255, 145, 100, 97),
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                              onPressed: () {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (Context) =>
+                                            buildListViewPrice()));
+                              },
+                              child: const Text('Show more'))
+                        ],
+                      )),
                 ],
               ),
             ),
@@ -334,53 +458,48 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  Widget buildListViewPrice(double h, double w, double itemWidth, int count,
-      String url, String title, String dsc, String stack) {
+  Widget buildListViewPrice(
+    double h,
+    double w,
+    double itemWidth,
+    int count,
+    String url,
+    String title,
+    String dsc,
+  ) {
     return SizedBox(
       height: h * 0.3,
       width: w,
       child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          dragStartBehavior: DragStartBehavior.down,
-          physics: const AlwaysScrollableScrollPhysics(),
-          itemCount: count,
-          itemBuilder: (context, index) {
-            return Stack(children: [
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding:
-                        const EdgeInsets.only(top: 16.0, right: 8, bottom: 0),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(20),
-                      child: Image.network(
-                        url,
-                        height: h * 0.15,
-                        fit: BoxFit.fill,
-                        width: itemWidth,
-                      ),
-                    ),
+        scrollDirection: Axis.horizontal,
+        dragStartBehavior: DragStartBehavior.down,
+        physics: const AlwaysScrollableScrollPhysics(),
+        itemCount: count,
+        itemBuilder: (context, index) {
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 16.0, right: 8, bottom: 0),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(20),
+                  child: Image.network(
+                    url,
+                    height: h * 0.15,
+                    fit: BoxFit.fill,
+                    width: itemWidth,
                   ),
-                  // SizedBox(
-                  //   height: h * 0.0,
-                  // ),
-                  buildText(h, w, title, h2TextStyle),
-                  buildText(h, w, dsc, dscTextStyle),
-                ],
-              ),
-              Positioned(
-                top: h * 0.02,
-                left: w * 0.05,
-                child: Container(
-                  height: h * 0.025,
-                  width: w * 0.3,
-                  color: Colors.white,
-                  child: const Text("From MX\$1626"),
                 ),
-              )
-            ]);
-          }),
+              ),
+              // SizedBox(
+              //   height: h * 0.0,
+              // ),
+              buildText(h, w, title, h2TextStyle),
+              buildText(h, w, dsc, dscTextStyle),
+            ],
+          );
+        },
+      ),
     );
   }
 }
