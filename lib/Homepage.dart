@@ -1,7 +1,11 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:sonder/Util/HexColor.dart';
+import 'package:sonder/pageControler/chat.dart';
+import 'package:sonder/pageControler/lobby.dart';
+import 'package:sonder/pageControler/profile.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -70,6 +74,12 @@ class _HomePageState extends State<HomePage> {
     "Montreal",
     "Nas"
   ];
+  //  final pages = [
+  //   const Page1(),
+  //   const Page2(),
+  //   const Page3(),
+  //   const Page4(),
+  // ];
 
   @override
   Widget build(BuildContext context) {
@@ -294,27 +304,43 @@ class _HomePageState extends State<HomePage> {
                       ),
                     )
                   ]),
-                  Container(
-                      height: h * 0.08,
-                      width: w,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(50),
-                        color: const Color.fromARGB(255, 145, 100, 97),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (Context) => ListView(
+                                children: [
+                                  Row(
+                                    children: [
+                                      Image.network(
+                                        'https://images.sonder.com/image/upload/c_fill,f_auto,q_auto:eco,w_600/v1616791504/catalina/homepage/city_grid/Denver.png',
+                                        height: h * 0.4,
+                                        width: w,
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: w * 0.18,
+                            vertical: h * 0.01,
+                          ),
+                          child: Text(
+                            'Show more',
+                            style: h1TextStyle,
+                          ),
+                        ),
                       ),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                              onPressed: () {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (Context) =>
-                                            buildListViewPrice()));
-                              },
-                              child: const Text('Show more'))
-                        ],
-                      )),
+                    ],
+                  ),
                 ],
               ),
             ),
@@ -382,33 +408,106 @@ class _HomePageState extends State<HomePage> {
           Visibility(
             visible: (searchTapped),
             child: Padding(
-              padding: const EdgeInsets.only(top: 75.0),
+              padding: const EdgeInsets.only(top: 90.0),
               child: Container(
                 color: Colors.white,
-                child: ListView.builder(
-                  itemCount: cities.length,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: const EdgeInsets.all(4.0),
+                child: Stack(
+                  children: [
+                    ListView.builder(
+                      itemCount: cities.length,
+                      itemBuilder: (context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(4.0),
+                          child: Container(
+                              height: h * 0.12,
+                              decoration:
+                                  const BoxDecoration(color: Colors.white),
+                              child: Row(
+                                children: [
+                                  const Icon(Icons.location_on),
+                                  Text(
+                                    cities[index],
+                                    style: dscTextStyle,
+                                  ),
+                                ],
+                              )),
+                        );
+                      },
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        bottom: 50,
+                      ),
                       child: Container(
-                          height: h * 0.05,
-                          decoration: const BoxDecoration(color: Colors.white),
-                          child: Row(
-                            children: [
-                              const Icon(Icons.location_on),
-                              Text(
-                                cities[index],
-                                style: dscTextStyle,
-                              ),
-                            ],
-                          )),
-                    );
-                  },
+                        height: h * 0.05,
+                        width: w,
+                        color: Colors.grey,
+                        child: Padding(
+                          padding: const EdgeInsets.all(10.0),
+                          child: Text(
+                            "All Cities",
+                            style: h2TextStyle,
+                          ),
+                        ),
+                      ),
+                    )
+                  ],
                 ),
               ),
             ),
-          )
+          ),
         ],
+      ),
+      bottomNavigationBar: Container(
+        height: 60,
+        decoration: BoxDecoration(
+          color: Theme.of(context).primaryColor,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(00),
+            topRight: Radius.circular(00),
+          ),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            IconButton(
+                onPressed: () {
+                  Get.to(() => const HomePage());
+                },
+                icon: const Icon(
+                  Icons.home,
+                  size: 40,
+                  color: Colors.grey,
+                )),
+            IconButton(
+                onPressed: () {
+                  Get.to(() => const Lobby());
+                },
+                icon: const Icon(
+                  Icons.menu,
+                  size: 40,
+                  color: Colors.grey,
+                )),
+            IconButton(
+                onPressed: () {
+                  Get.to(() => const Chat());
+                },
+                icon: const Icon(
+                  Icons.chat_rounded,
+                  size: 40,
+                  color: Colors.grey,
+                )),
+            IconButton(
+                onPressed: () {
+                  Get.to(() => const Profile());
+                },
+                icon: const Icon(
+                  Icons.person_outlined,
+                  size: 40,
+                  color: Colors.grey,
+                )),
+          ],
+        ),
       ),
     ));
   }
