@@ -1,6 +1,4 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:sonder/Util/styles.dart';
 import 'package:sonder/screens/nav_bar_pages/booking_page.dart';
 import 'package:sonder/screens/nav_bar_pages/home_page.dart';
 
@@ -17,12 +15,9 @@ class _MainPageState extends State<MainPage> {
     const BookingPage(),
   ];
   int _selectedIndex = 0;
-   
-  pages.add(HomePage());
 
   @override
   Widget build(BuildContext context) {
-    
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     return SafeArea(

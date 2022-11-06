@@ -11,7 +11,6 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   bool searchTapped = false;
- 
 
   List cities = <String>[
     "Amsterdam",
@@ -62,7 +61,6 @@ class _HomePageState extends State<HomePage> {
 
   bool showMore = false;
 
-  
   final int _selectedIndex = 0;
   List Screen = [
     const Center(
@@ -295,49 +293,30 @@ class _HomePageState extends State<HomePage> {
                     ),
                   )
                 ]),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    ElevatedButton(
-                      onPressed: () {
-                        setState(() {
-                          showMore = !showMore;
-                        });
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(
-                        //     builder: (context) => ListView(
-                        //       children: [
-                        //         Row(
-                        //           children: [
-                        //             Image.network(
-                        //               'https://images.sonder.com/image/upload/c_fill,f_auto,q_auto:eco,w_600/v1616791504/catalina/homepage/city_grid/Denver.png',
-                        //               height: h * 0.4,
-                        //               width: w,
-                        //             ),
-                        //           ],
-                        //         ),
-                        //       ],
-                        //     ),
-                        //   ),
-                        // );
-                      },
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(
-                          horizontal: w * 0.18,
-                          vertical: h * 0.01,
-                        ),
-                        child: Text(
-                          'Show more',
-                          style: h1TextStyle,
-                        ),
+                Visibility(
+                  visible: !showMore,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      setState(() {
+                        showMore = true;
+                      });
+                    },
+                    child: Padding(
+                      padding: EdgeInsets.symmetric(
+                        horizontal: w * 0.18,
+                        vertical: h * 0.01,
+                      ),
+                      child: Text(
+                        'Show more',
+                        style: h1TextStyle,
                       ),
                     ),
-                  ],
+                  ),
                 ),
                 Visibility(
                   visible: showMore,
-                  child: Stack(children: [
+                  child: Stack(
+                    children: [
                     buildListViewPrice(
                       h,
                       w,
@@ -363,7 +342,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         // showmore[_selectedItem],
-        // TextFormField
+        // Search TextFormField
         Padding(
           padding: EdgeInsets.symmetric(
             horizontal: w * 0.01,
@@ -422,7 +401,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        // ListView
+        // Search Suggestions ListView
         Visibility(
           visible: (searchTapped),
           child: Padding(
@@ -474,7 +453,6 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        Screen[_selectedIndex]
       ],
     );
   }
@@ -536,10 +514,10 @@ class _HomePageState extends State<HomePage> {
     return SizedBox(
       height: h * 0.3,
       width: w,
-      child: ListView.builder(
+      child: PageView.builder(
         scrollDirection: Axis.horizontal,
         dragStartBehavior: DragStartBehavior.down,
-        physics: const AlwaysScrollableScrollPhysics(),
+        physics: const PageScrollPhysics(),
         itemCount: count,
         itemBuilder: (context, index) {
           return Column(
