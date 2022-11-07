@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:sonder/screens/nav_bar_pages/account_page.dart';
 import 'package:sonder/screens/nav_bar_pages/booking_page.dart';
+import 'package:sonder/screens/nav_bar_pages/chatpage.dart';
 import 'package:sonder/screens/nav_bar_pages/home_page.dart';
 
 class MainPage extends StatefulWidget {
@@ -13,6 +15,8 @@ class _MainPageState extends State<MainPage> {
   List pages = [
     const HomePage(),
     const BookingPage(),
+    const ChatPage(),
+    const AccountPage()
   ];
   int _selectedIndex = 0;
 
@@ -36,27 +40,28 @@ class _MainPageState extends State<MainPage> {
             BottomNavigationBarItem(
                 icon: Icon(
                   Icons.home,
+                  color: Color.fromARGB(255, 100, 102, 104),
                 ),
                 label: "Home"),
             BottomNavigationBarItem(
-                backgroundColor: Colors.amber,
+                // backgroundColor: Colors.amber,
                 icon: Icon(
                   Icons.calendar_month,
-                  color: Color.fromARGB(255, 5, 158, 235),
+                  color: Color.fromARGB(255, 100, 102, 104),
                 ),
                 label: "Services"),
             BottomNavigationBarItem(
-                backgroundColor: Colors.yellow,
+                // backgroundColor: Colors.yellow,
                 icon: Icon(
                   Icons.chat,
-                  color: Color.fromARGB(255, 9, 161, 236),
+                  color: Color.fromARGB(255, 100, 102, 104),
                 ),
                 label: "Chat"),
             BottomNavigationBarItem(
-                backgroundColor: Colors.deepPurple,
+                // backgroundColor: Colors.deepPurple,
                 icon: Icon(
                   Icons.account_box,
-                  color: Color.fromARGB(255, 5, 157, 233),
+                  color: Color.fromARGB(255, 100, 102, 104),
                 ),
                 label: "Accpount"),
           ],
