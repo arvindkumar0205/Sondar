@@ -14,11 +14,11 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   List pages = [
     const HomePage(),
-    const BookingPage(),
+    BookingPage(),
     const ChatPage(),
     const AccountPage()
   ];
-  int _selectedIndex = 0;
+  static int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -26,15 +26,15 @@ class _MainPageState extends State<MainPage> {
     double w = MediaQuery.of(context).size.width;
     return SafeArea(
       child: Scaffold(
-        body: pages[_selectedIndex],
+        body: pages[selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           onTap: (index) {
             setState(() {
-              _selectedIndex = index;
+              selectedIndex = index;
             });
           },
           backgroundColor: Colors.blue,
-          currentIndex: _selectedIndex,
+          currentIndex: selectedIndex,
           // type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(

@@ -295,28 +295,34 @@ class _HomePageState extends State<HomePage> {
                 ]),
                 Visibility(
                   visible: !showMore,
-                  child: ElevatedButton(
-                    onPressed: () {
-                      setState(() {
-                        showMore = true;
-                      });
-                    },
-                    child: Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: w * 0.18,
-                        vertical: h * 0.01,
-                      ),
-                      child: Text(
-                        'Show more',
-                        style: h1TextStyle,
+                  child: Center(
+                    child: ElevatedButton(
+                      onPressed: () {
+                        setState(() {
+                          showMore = true;
+                        });
+                      },
+                      style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.grey,
+                          shape: const RoundedRectangleBorder(
+                              borderRadius:
+                                  BorderRadius.all(Radius.circular(30)))),
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: w * 0.18,
+                          vertical: h * 0.01,
+                        ),
+                        child: Text(
+                          'Show more',
+                          style: h1TextStyle,
+                        ),
                       ),
                     ),
                   ),
                 ),
                 Visibility(
                   visible: showMore,
-                  child: Stack(
-                    children: [
+                  child: Stack(children: [
                     buildListViewPrice(
                       h,
                       w,
@@ -329,7 +335,7 @@ class _HomePageState extends State<HomePage> {
                     Align(
                       alignment: Alignment.topRight,
                       child: Container(
-                        height: h * 0.04,
+                        height: h * 0.06,
                         width: w * 0.4,
                         color: Colors.white,
                         child: const Center(child: Text("From €137")),

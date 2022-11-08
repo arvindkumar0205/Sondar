@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class Login extends StatefulWidget {
@@ -52,18 +51,24 @@ class _LoginState extends State<Login> {
               child: TextFormField(
                 obscureText: isHiddenPassword,
                 decoration: InputDecoration(
-                    border: UnderlineInputBorder(),
+                    border: const UnderlineInputBorder(),
                     hintText: "Password",
                     suffixIcon: InkWell(
                         onTap: _togglePasswordView,
-                        child: Icon(Icons.visibility))),
+                        child: const Icon(
+                          Icons.visibility,
+                          color: Colors.amber,
+                        ))),
               ),
             ),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 20),
-              child: Text(
-                "Forgot password?",
-                style: TextStyle(color: Colors.orange, fontSize: 20),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: GestureDetector(
+                onTap: () {},
+                child: const Text(
+                  "Forgot password?",
+                  style: TextStyle(color: Colors.orange, fontSize: 20),
+                ),
               ),
             ),
             SizedBox(
@@ -73,7 +78,7 @@ class _LoginState extends State<Login> {
               child: MaterialButton(
                 height: h * 0.08,
                 minWidth: w * 0.60,
-                color: Color.fromARGB(255, 241, 217, 106),
+                color: const Color.fromARGB(255, 241, 217, 106),
                 onPressed: () {
                   // Get.to(() => const Login());
                 },
@@ -99,7 +104,7 @@ class _LoginState extends State<Login> {
                   endIndent: 10,
                   height: 20,
                   thickness: 2,
-                  color: Colors.red,
+                  color: Colors.green,
                 )),
                 Text(
                   "Or Continue With",
@@ -116,6 +121,7 @@ class _LoginState extends State<Login> {
               ],
             ),
             Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 IconButton(
                   onPressed: () {},
@@ -125,6 +131,24 @@ class _LoginState extends State<Login> {
                     color: Color.fromARGB(255, 4, 131, 235),
                   ),
                 ),
+                IconButton(
+                    icon: const FaIcon(
+                      FontAwesomeIcons.linkedin,
+                      size: 60,
+                      color: Colors.blue,
+                    ),
+                    onPressed: () {
+                      print("Pressed");
+                    }),
+                IconButton(
+                    icon: const FaIcon(
+                      FontAwesomeIcons.google,
+                      size: 60,
+                      color: Colors.red,
+                    ),
+                    onPressed: () {
+                      // print("Pressed");
+                    }),
               ],
             )
           ],

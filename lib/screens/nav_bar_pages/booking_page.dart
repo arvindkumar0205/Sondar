@@ -67,7 +67,7 @@ class _BookingPageState extends State<BookingPage> {
             child: MaterialButton(
               height: h * 0.08,
               minWidth: w * 0.60,
-              color: Color.fromARGB(255, 240, 197, 8),
+              color: const Color.fromARGB(255, 240, 197, 8),
               onPressed: () {
                 Get.to(() => const Login());
               },
@@ -86,17 +86,20 @@ class _BookingPageState extends State<BookingPage> {
             height: h * 0.02,
           ),
           Center(
-            child: RichText(
-              text: const TextSpan(
-                style: TextStyle(color: Colors.black, fontSize: 20),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: "Don't Have an account? ",
-                      style: TextStyle(color: Colors.grey)),
-                  TextSpan(
-                      text: "sign up",
-                      style: TextStyle(color: Colors.deepOrange))
-                ],
+            child: GestureDetector(
+              onTap: (() {}),
+              child: RichText(
+                text: const TextSpan(
+                  style: TextStyle(color: Colors.black, fontSize: 20),
+                  children: <TextSpan>[
+                    TextSpan(
+                        text: "Don't Have an account? ",
+                        style: TextStyle(color: Colors.grey)),
+                    TextSpan(
+                        text: "sign up",
+                        style: TextStyle(color: Colors.deepOrange))
+                  ],
+                ),
               ),
             ),
           ),
