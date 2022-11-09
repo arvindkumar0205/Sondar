@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sonder/Util/styles.dart';
+import 'package:sonder/detailpage.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -475,36 +476,45 @@ class _HomePageState extends State<HomePage> {
     return SizedBox(
       height: h * 0.3,
       width: w,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          dragStartBehavior: DragStartBehavior.start,
-          physics: const ClampingScrollPhysics(),
-          itemCount: count,
-          itemBuilder: (context, index) {
-            return Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding:
-                      const EdgeInsets.only(top: 16.0, right: 8, bottom: 0),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Image.network(
-                      url,
-                      height: h * 0.15,
-                      fit: BoxFit.fill,
-                      width: itemWidth,
+      child: GestureDetector(
+        onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const DetailPage()));
+        },
+        child: ListView.builder(
+            scrollDirection: Axis.horizontal,
+            dragStartBehavior: DragStartBehavior.start,
+            controller: PageController(
+              viewportFraction: 01.0,
+            ),
+            physics: const ScrollPhysics(),
+            itemCount: count,
+            itemBuilder: (context, index) {
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(top: 16.0, right: 8, bottom: 0),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Image.network(
+                        url,
+                        height: h * 0.15,
+                        fit: BoxFit.fill,
+                        width: itemWidth,
+                      ),
                     ),
                   ),
-                ),
-                // SizedBox(
-                //   height: h * 0.0,
-                // ),
-                buildText(h, w, title, h2TextStyle),
-                buildText(h, w, dsc, dscTextStyle),
-              ],
-            );
-          }),
+                  // SizedBox(
+                  //   height: h * 0.0,
+                  // ),
+                  buildText(h, w, title, h2TextStyle),
+                  buildText(h, w, dsc, dscTextStyle),
+                ],
+              );
+            }),
+      ),
     );
   }
 
@@ -521,9 +531,10 @@ class _HomePageState extends State<HomePage> {
       height: h * 0.3,
       width: w,
       child: PageView.builder(
+        controller: PageController(initialPage: 1),
         scrollDirection: Axis.horizontal,
         dragStartBehavior: DragStartBehavior.down,
-        physics: const PageScrollPhysics(),
+        physics: const ScrollPhysics(),
         itemCount: count,
         itemBuilder: (context, index) {
           return Column(
