@@ -1,7 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:sonder/Util/styles.dart';
-import 'package:sonder/detailpage.dart';
+import 'package:sonder/screens/details_pagein.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -479,7 +479,7 @@ class _HomePageState extends State<HomePage> {
       child: GestureDetector(
         onTap: () {
           Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const DetailPage()));
+              MaterialPageRoute(builder: (context) => const DetailsPagein()));
         },
         child: ListView.builder(
             scrollDirection: Axis.horizontal,
