@@ -534,7 +534,7 @@ class _HomePageState extends State<HomePage> {
         controller: PageController(initialPage: 1),
         scrollDirection: Axis.horizontal,
         dragStartBehavior: DragStartBehavior.down,
-        physics: const ScrollPhysics(),
+        physics: const PageScrollPhysics(),
         itemCount: count,
         itemBuilder: (context, index) {
           return Column(
