@@ -137,9 +137,7 @@ class _LoginState extends State<Login> {
                       size: 60,
                       color: Colors.blue,
                     ),
-                    onPressed: () {
-                      print("Pressed");
-                    }),
+                    onPressed: () {}),
                 IconButton(
                     icon: const FaIcon(
                       FontAwesomeIcons.google,

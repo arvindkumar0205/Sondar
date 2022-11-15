@@ -6,4 +6,4 @@ Color bgColor = const Color(0xFFfffbf2);
 Color btColor = const Color(0xFFfcf5eb);
 Color sbtColor = const Color(0xFFeaece2);
 Color textColor = const Color(0xFF073937);
-Color seebtnColor = const Color(0xFFe6b022);
+Color btnColor = const Color(0xFFe6b022);
