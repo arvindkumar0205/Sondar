@@ -31,30 +31,30 @@ class _DetailsPageinState extends State<DetailsPagein> {
 
   @override
   Widget build(BuildContext context) {
-    Widget horizontalList1 = new Container(
-        margin: EdgeInsets.symmetric(vertical: 20.0),
-        height: 200.0,
-        child: new ListView(
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Container(
-              width: 160.0,
-              color: Colors.red,
-            ),
-            Container(
-              width: 160.0,
-              color: Colors.orange,
-            ),
-            Container(
-              width: 160.0,
-              color: Colors.pink,
-            ),
-            Container(
-              width: 160.0,
-              color: Colors.yellow,
-            ),
-          ],
-        ));
+    // Widget horizontalList1 = new Container(
+    //     margin: EdgeInsets.symmetric(vertical: 20.0),
+    //     height: 200.0,
+    //     child: new ListView(
+    //       scrollDirection: Axis.horizontal,
+    //       children: <Widget>[
+    //         Container(
+    //           width: 160.0,
+    //           color: Colors.red,
+    //         ),
+    //         Container(
+    //           width: 160.0,
+    //           color: Colors.orange,
+    //         ),
+    //         Container(
+    //           width: 160.0,
+    //           color: Colors.pink,
+    //         ),
+    //         Container(
+    //           width: 160.0,
+    //           color: Colors.yellow,
+    //         ),
+    //       ],
+    //     ));
     double h = MediaQuery.of(context).size.height;
     double w = MediaQuery.of(context).size.width;
     final List<Widget> imageSliders = imgList
@@ -126,6 +126,9 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           bgColor: bgColor,
                           onPressed: () {}),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 0.8,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -213,6 +216,9 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           onPressed: () {}),
                     ],
                   ),
+                  const SizedBox(
+                    height: 0.8,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -275,7 +281,7 @@ class _DetailsPageinState extends State<DetailsPagein> {
                       bottom: 20,
                     ),
                     child: Container(
-                      height: h * 0.3,
+                      height: h * 0.4,
                       width: w,
                       color: Colors.grey[300],
                       child: Column(
@@ -312,7 +318,7 @@ class _DetailsPageinState extends State<DetailsPagein> {
                             ),
                           ),
                           SizedBox(
-                            height: h * 0.02,
+                            height: h * 0.03,
                           ),
                           Text(
                             "Flexible cancellation available",
@@ -320,7 +326,8 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 20, vertical: 10),
+                              horizontal: 20,
+                            ),
                             child: Text(
                               "Select the Flex Rate to get a full refund up to 3 days before check-in with no cancellation fees. View policy",
                               style: dscTextStyle,
@@ -348,6 +355,9 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           bgColor: sbtColor,
                           onPressed: () {}),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 0.8,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -498,6 +508,7 @@ class _DetailsPageinState extends State<DetailsPagein> {
                   SizedBox(
                     height: h * 0.02,
                   ),
+                  // see what,s button
                   button(
                       h: 50,
                       text: "See What's available",
@@ -527,13 +538,19 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           onPressed: () {}),
                     ],
                   ),
-                  Row(
-                    children: [
-                      button(
-                          text: "luggage Storage",
-                          bgColor: sbtColor,
-                          onPressed: () {}),
-                    ],
+                  const SizedBox(
+                    height: 0.8,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(left: 30),
+                    child: Row(
+                      children: [
+                        button(
+                            text: "luggage Storage",
+                            bgColor: sbtColor,
+                            onPressed: () {}),
+                      ],
+                    ),
                   ),
                   SizedBox(
                     height: h * 0.02,
@@ -596,6 +613,7 @@ class _DetailsPageinState extends State<DetailsPagein> {
                   SizedBox(
                     height: h * 0.02,
                   ),
+                  // see what,s button
                   button(
                       h: 50,
                       text: "See What's available",
@@ -622,6 +640,9 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           bgColor: sbtColor,
                           onPressed: () {}),
                     ],
+                  ),
+                  const SizedBox(
+                    height: 0.8,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -699,6 +720,9 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           onPressed: () {}),
                     ],
                   ),
+                  const SizedBox(
+                    height: 0.8,
+                  ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
@@ -710,17 +734,14 @@ class _DetailsPageinState extends State<DetailsPagein> {
                           text: "Elevator",
                           bgColor: sbtColor,
                           onPressed: () {}),
-                    ],
-                  ),
-                  Row(
-                    children: [
                       button(
                           text: "+1 more", bgColor: sbtColor, onPressed: () {}),
                     ],
                   ),
-                  SizedBox(
-                    height: h * 0.02,
+                  const SizedBox(
+                    height: 0.20,
                   ),
+
                   Stack(
                     alignment: Alignment.bottomCenter,
                     children: [
@@ -745,51 +766,53 @@ class _DetailsPageinState extends State<DetailsPagein> {
                       ),
                     ],
                   ),
+                  tButton(onPressed: () {}, text: "ROOM TYPES &NIGHTLY RATES"),
+
                   SizedBox(
                     height: h * 0.02,
                   ),
 
-                  // Column(
-                  //   children: [
-                  //     Row(
-                  //       children: [
-                  //         Card(
-                  //           child: Column(
-                  //             crossAxisAlignment: CrossAxisAlignment.start,
-                  //             children: [
-                  //               tButton(onPressed: () {}, text: "1 Badroom"),
-                  //               tButton(onPressed: () {}, text: "from US\$307"),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //         const Spacer(),
-                  //         Card(
-                  //           child: Column(
-                  //             crossAxisAlignment: CrossAxisAlignment.start,
-                  //             children: [
-                  //               tButton(onPressed: () {}, text: "2 Badroom"),
-                  //               tButton(onPressed: () {}, text: "from US\$966"),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //         Spacer(),
-                  //         Card(
-                  //           child: Column(
-                  //             crossAxisAlignment: CrossAxisAlignment.start,
-                  //             children: [
-                  //               tButton(onPressed: () {}, text: "3 Badroom"),
-                  //               tButton(
-                  //                   onPressed: () {}, text: "from US\$1,533"),
-                  //             ],
-                  //           ),
-                  //         ),
-                  //       ],
-                  //     ),
-                  //   ],
-                  // ),
-                  ListView(
-                    scrollDirection: Axis.horizontal,
+                  Column(
+                    children: [
+                      Row(
+                        children: [
+                          Card(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                tButton(onPressed: () {}, text: "1 Badroom"),
+                                tButton(onPressed: () {}, text: "from US\$307"),
+                              ],
+                            ),
+                          ),
+                          const Spacer(),
+                          Card(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                tButton(onPressed: () {}, text: "2 Badroom"),
+                                tButton(onPressed: () {}, text: "from US\$975"),
+                              ],
+                            ),
+                          ),
+                          Spacer(),
+                          Card(
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                tButton(onPressed: () {}, text: "3 Badroom"),
+                                tButton(
+                                    onPressed: () {}, text: "from US\$1,547"),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
+                  // ListView(
+                  //   scrollDirection: Axis.horizontal,
+                  // ),
                   SizedBox(
                     height: h * 0.02,
                   ),
